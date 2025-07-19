@@ -32,20 +32,20 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'manish.cs@example.com',
-      href: 'mailto:manish.cs@example.com'
+      value: 'manishmudhiraj1903@gmail.com',
+      href: 'mailto:manishmudhiraj1903@gmail.com'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/k-manish',
-      href: 'https://linkedin.com/in/k-manish'
+      value: 'linkedin.com/in/kmanish1903',
+      href: 'https://linkedin.com/in/kmanish1903'
     },
     {
       icon: Github,
       label: 'GitHub',
-      value: 'github.com/k-manish',
-      href: 'https://github.com/k-manish'
+      value: 'github.com/kmanish1903',
+      href: 'https://github.com/kmanish1903'
     },
     {
       icon: MapPin,
@@ -122,7 +122,7 @@ const Contact = () => {
                   variant="outline" 
                   size="lg" 
                   className="flex-1 border-primary text-primary hover:bg-primary hover:text-white"
-                  onClick={() => window.open('https://linkedin.com/in/k-manish', '_blank')}
+                  onClick={() => window.open('https://linkedin.com/in/kmanish1903', '_blank')}
                 >
                   <Linkedin className="mr-2 h-5 w-5" />
                   LinkedIn
@@ -131,7 +131,7 @@ const Contact = () => {
                   variant="outline" 
                   size="lg" 
                   className="flex-1 border-primary text-primary hover:bg-primary hover:text-white"
-                  onClick={() => window.open('https://github.com/k-manish', '_blank')}
+                  onClick={() => window.open('https://github.com/kmanish1903', '_blank')}
                 >
                   <Github className="mr-2 h-5 w-5" />
                   GitHub
