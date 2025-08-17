@@ -1,12 +1,7 @@
-import { Download, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
-  const handleDownloadResume = () => {
-    // In a real app, this would download the actual resume
-    console.log('Download resume clicked');
-  };
-
   const handleContactMe = () => {
     const element = document.querySelector('#contact');
     if (element) {
@@ -33,16 +28,7 @@ const Hero = () => {
             Final-year B.Tech CSE | MERN Stack Developer | Future DevOps Engineer
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              onClick={handleDownloadResume}
-              className="gradient-hero text-white hover:opacity-90 transition-smooth shadow-lg hover:shadow-xl"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download Resume
-            </Button>
-            
+          <div className="flex justify-center">
             <Button 
               size="lg" 
               variant="outline" 

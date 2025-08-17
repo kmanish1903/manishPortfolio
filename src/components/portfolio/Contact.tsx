@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Linkedin, Github, Download, MapPin, Phone } from 'lucide-react';
+import { Mail, Linkedin, Github, MapPin } from 'lucide-react';
 import { useState } from 'react';
 
 const Contact = () => {
@@ -107,16 +107,7 @@ const Contact = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="space-y-4 pt-8">
-              <Button 
-                size="lg" 
-                className="w-full gradient-hero text-white hover:opacity-90 transition-smooth"
-                onClick={() => console.log('Download resume')}
-              >
-                <Download className="mr-2 h-5 w-5" />
-                Download My Resume
-              </Button>
-              
+            <div className="pt-8">
               <div className="flex space-x-4">
                 <Button 
                   variant="outline" 
