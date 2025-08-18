@@ -112,7 +112,7 @@ const Contact = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-white"
+                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-white interactive-button"
                   onClick={() => window.open('https://linkedin.com/in/kmanish1903', '_blank')}
                 >
                   <Linkedin className="mr-2 h-5 w-5" />
@@ -121,7 +121,7 @@ const Contact = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-white"
+                  className="flex-1 border-primary text-primary hover:bg-primary hover:text-white interactive-button"
                   onClick={() => window.open('https://github.com/kmanish1903', '_blank')}
                 >
                   <Github className="mr-2 h-5 w-5" />
@@ -191,7 +191,7 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full gradient-hero text-white hover:opacity-90 transition-smooth"
+                  className="w-full gradient-hero text-white shadow-glow interactive-button"
                 >
                   <Mail className="mr-2 h-5 w-5" />
                   Send Message

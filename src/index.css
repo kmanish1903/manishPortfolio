@@ -72,41 +72,57 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Theme - Deep Space with Accent Colors */
+    --background: 220 27% 8%;
+    --foreground: 220 15% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 10%;
+    --card-foreground: 220 15% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 220 15% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 217 91% 65%;
+    --primary-foreground: 220 27% 8%;
+    --primary-hover: 217 91% 70%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 220 15% 85%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 280 100% 70%;
+    --accent-foreground: 220 27% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 15% 95%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 217 91% 65%;
+
+    /* Enhanced Dark Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 65%) 0%, hsl(280 100% 70%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220 25% 10%) 0%, hsl(220 20% 12%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 27% 8%) 0%, hsl(220 25% 10%) 100%);
+    --gradient-glow: radial-gradient(circle at center, hsl(217 91% 65% / 0.3) 0%, transparent 70%);
+
+    /* Dark Shadows with Glow */
+    --shadow-sm: 0 1px 2px 0 hsl(220 100% 0% / 0.5);
+    --shadow-md: 0 4px 6px -1px hsl(220 100% 0% / 0.5), 0 2px 4px -1px hsl(220 100% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(220 100% 0% / 0.5), 0 4px 6px -2px hsl(220 100% 0% / 0.3);
+    --shadow-xl: 0 20px 25px -5px hsl(220 100% 0% / 0.6), 0 10px 10px -5px hsl(220 100% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(217 91% 65% / 0.3);
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 220 15% 95%;
+    --sidebar-primary: 217 91% 65%;
+    --sidebar-primary-foreground: 220 27% 8%;
+    --sidebar-accent: 220 20% 15%;
+    --sidebar-accent-foreground: 220 15% 85%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 217 91% 65%;
   }
 }
 
@@ -117,6 +133,10 @@
 
   body {
     @apply bg-background text-foreground font-inter;
+  }
+  
+  html {
+    @apply dark;
   }
 
   /* Animation keyframes */
@@ -164,8 +184,16 @@
     background: var(--gradient-subtle);
   }
 
+  .gradient-glow {
+    background: var(--gradient-glow);
+  }
+
   .shadow-custom {
     box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
   }
 
   .animate-fade-in-up {
@@ -182,5 +210,40 @@
 
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+
+  /* Enhanced UI Elements */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-glow hover:-translate-y-2 hover:scale-105;
+  }
+
+  .skill-bar {
+    @apply relative overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-2 bg-primary/30 rounded-full;
+  }
+
+  .skill-fill {
+    @apply h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out;
+  }
+
+  .floating-element {
+    @apply animate-pulse;
+  }
+
+  /* Micro-interactions */
+  .interactive-button {
+    @apply transition-all duration-200 hover:shadow-glow hover:scale-105 active:scale-95;
+  }
+
+  .project-card {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-card/80 backdrop-blur-sm;
+  }
+
+  /* Parallax and scroll effects */
+  .parallax-bg {
+    @apply fixed inset-0 bg-gradient-glow opacity-20 animate-pulse;
   }
 }

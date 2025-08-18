@@ -52,7 +52,7 @@ const Certificates = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {certificates.map((cert, index) => (
-            <Card key={cert.id} className="gradient-card border-0 shadow-custom hover:shadow-xl transition-smooth animate-scale-in group">
+            <Card key={cert.id} className="gradient-card border-0 shadow-custom card-hover animate-scale-in group" style={{ animationDelay: `${index * 150}ms` }}>
               <CardContent className="p-6">
                 <div className="text-center">
                   {cert.image ? (
@@ -76,15 +76,15 @@ const Certificates = () => {
                     {cert.issuer}
                   </p>
                   
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-white"
-                    onClick={() => window.open(cert.url, '_blank')}
-                  >
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    View Certificate
-                  </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-white interactive-button"
+                      onClick={() => window.open(cert.url, '_blank')}
+                    >
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      View Certificate
+                    </Button>
                 </div>
               </CardContent>
             </Card>

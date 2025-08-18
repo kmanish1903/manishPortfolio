@@ -55,7 +55,7 @@ const Skills = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {skillCategories.map((category, index) => (
-            <Card key={index} className="gradient-card border-0 shadow-custom hover:shadow-xl transition-smooth animate-scale-in">
+            <Card key={index} className="gradient-card border-0 shadow-custom card-hover animate-scale-in"  style={{ animationDelay: `${index * 200}ms` }}>
               <CardHeader className="text-center">
                 <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
                   <category.icon className="h-8 w-8 text-primary" />
@@ -72,12 +72,14 @@ const Skills = () => {
                       <span className="font-medium text-foreground">{skill.name}</span>
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
-                      <div 
-                        className={`h-full rounded-full transition-all duration-1000 ease-out ${getProgressColor(skill.level)}`}
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
+                     <div className="skill-bar">
+                       <div className="skill-progress">
+                         <div 
+                           className="skill-fill"
+                           style={{ width: `${skill.level}%`, animationDelay: `${skillIndex * 150 + 500}ms` }}
+                         />
+                       </div>
+                     </div>
                   </div>
                 ))}
               </CardContent>

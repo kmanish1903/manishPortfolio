@@ -52,7 +52,7 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="gradient-card border-0 shadow-custom hover:shadow-xl transition-smooth overflow-hidden animate-scale-in">
+            <Card key={index} className="gradient-card border-0 shadow-custom project-card overflow-hidden animate-scale-in" style={{ animationDelay: `${index * 200}ms` }}>
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
@@ -99,11 +99,11 @@ const Projects = () => {
 
                 {/* Action Buttons */}
                 <div className="flex gap-3 pt-4">
-                  <Button size="sm" className="gradient-hero text-white hover:opacity-90">
+                  <Button size="sm" className="gradient-hero text-white shadow-glow interactive-button">
                     <ExternalLink className="mr-2 h-4 w-4" />
                     Live Demo
                   </Button>
-                  <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                  <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white interactive-button">
                     <Github className="mr-2 h-4 w-4" />
                     View Code
                   </Button>
