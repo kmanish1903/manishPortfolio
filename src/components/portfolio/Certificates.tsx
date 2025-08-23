@@ -9,21 +9,21 @@ const Certificates = () => {
   const certificates = [
     {
       id: 1,
-      title: 'React JS Certification',
+      title: 'Databases with SQL',
       issuer: 'NxtWave',
       image: certificate1,
       url: 'https://s3-ap-south-1.amazonaws.com/nkb-backend-ccbp-media-static/certificates/share/KUOIIYLIAE.png'
     },
     {
       id: 2,
-      title: 'Node JS Certification',
+      title: 'Static Website',
       issuer: 'NxtWave',
       image: certificate2,
       url: 'https://s3-ap-south-1.amazonaws.com/nkb-backend-ccbp-media-static/certificates/share/QICCEYHRLM.png'
     },
     {
       id: 3,
-      title: 'MongoDB Certification',
+      title: 'Responsive Website',
       issuer: 'NxtWave',
       image: certificate3,
       url: 'https://s3-ap-south-1.amazonaws.com/nkb-backend-ccbp-media-static/certificates/share/NTOTIJGROR.png'
@@ -32,7 +32,7 @@ const Certificates = () => {
       id: 4,
       title: 'Programming Fundamentals',
       issuer: 'Coursera',
-      image: null,
+      image: 'https://res.cloudinary.com/dpxvhojoh/image/upload/v1755881312/Screenshot_2025-08-22_221252_v0s7mq.png',
       url: 'https://coursera.org/share/ef07bd252ec10ea4491becd7663c6563'
     }
   ];
