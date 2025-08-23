@@ -3,7 +3,7 @@
 Welcome to my personal portfolio project!  
 This website showcases my skills, projects, certificates, and provides a way for recruiters/clients to connect with me.
 
-🔗 **Live URL**: [View Portfolio](https://lovable.dev/projects/39fcabba-8979-460c-8807-99c46fc4b1b5)
+🔗 **Live URL**: [View Portfolio](manish-portfolio-ashy.vercel.app)
 
 ---
 
