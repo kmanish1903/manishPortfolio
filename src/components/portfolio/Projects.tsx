@@ -72,7 +72,7 @@ const Projects = () => {
         'State management'
       ],
       liveUrl: 'https://incredecrm.ccbp.tech',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/kmanish1903/dynamic-work'
     }
   ];
 
