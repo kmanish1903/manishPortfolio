@@ -59,6 +59,23 @@ const Projects = () => {
     // Add responsive projects here
   ];
 
+  const dynamicProjects = [
+    {
+      title: 'Interactive Counter',
+      description: 'A dynamic counter application demonstrating JavaScript interactivity with increment, decrement, and reset functionality using pure HTML, CSS, and JavaScript.',
+      image: null, // Placeholder for now
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Real-time counter updates',
+        'Interactive button controls',
+        'Clean user interface',
+        'State management'
+      ],
+      liveUrl: 'https://incredecrm.ccbp.tech',
+      githubUrl: '#'
+    }
+  ];
+
   const renderProjectCard = (project: any, index: number) => (
     <Card key={index} className="gradient-card border-0 shadow-custom project-card overflow-hidden animate-scale-in" style={{ animationDelay: `${index * 200}ms` }}>
       {project.image && (
@@ -145,10 +162,11 @@ const Projects = () => {
         </div>
 
         <Tabs defaultValue="featured" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
             <TabsTrigger value="featured">Featured</TabsTrigger>
             <TabsTrigger value="static">Static</TabsTrigger>
             <TabsTrigger value="responsive">Responsive</TabsTrigger>
+            <TabsTrigger value="dynamic">Dynamic</TabsTrigger>
           </TabsList>
 
           <TabsContent value="featured">
@@ -172,6 +190,12 @@ const Projects = () => {
                   <p className="text-muted-foreground">Responsive projects coming soon...</p>
                 </div>
               )}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="dynamic">
+            <div className="grid md:grid-cols-2 gap-8">
+              {dynamicProjects.map((project, index) => renderProjectCard(project, index))}
             </div>
           </TabsContent>
         </Tabs>
