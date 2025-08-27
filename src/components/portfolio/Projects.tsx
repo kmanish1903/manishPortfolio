@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ExternalLink, Github } from 'lucide-react';
 import genvitexImage from '@/assets/genvitex-project.jpg';
 import mernImage from '@/assets/mern-crud-project.jpg';
@@ -73,6 +74,26 @@ const Projects = () => {
       ],
       liveUrl: 'https://incredecrm.ccbp.tech',
       githubUrl: 'https://github.com/kmanish1903/dynamic-work'
+    },
+    {
+      title: 'Traffic Light Controller',
+      description: 'An interactive traffic light simulation built with HTML, CSS, and JavaScript. Features dynamic state changes with Stop, Ready, and Go functionality, demonstrating DOM manipulation and event handling.',
+      images: [
+        '/lovable-uploads/307e9ad9-1c21-4fca-8ddc-6db3b82dc65e.png',
+        '/lovable-uploads/179a5f18-66ac-4457-a6b5-3792a457d0e4.png',
+        '/lovable-uploads/d6be7515-7ad5-46dd-bfe9-cb95cd65bf13.png',
+        '/lovable-uploads/b4570e7f-f46f-4a09-beb3-33fd760cec16.png'
+      ],
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Interactive traffic light states',
+        'Stop, Ready, and Go functionality',
+        'Smooth state transitions',
+        'Responsive button controls',
+        'Visual feedback with color changes'
+      ],
+      liveUrl: '#',
+      githubUrl: '#'
     }
   ];
 
@@ -86,6 +107,27 @@ const Projects = () => {
             className="w-full h-48 object-cover transition-smooth hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        </div>
+      )}
+      
+      {project.images && (
+        <div className="relative overflow-hidden">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {project.images.map((imageSrc: string, imgIndex: number) => (
+                <CarouselItem key={imgIndex}>
+                  <img 
+                    src={imageSrc} 
+                    alt={`${project.title} - State ${imgIndex + 1}`}
+                    className="w-full h-48 object-cover transition-smooth"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
         </div>
       )}
       
