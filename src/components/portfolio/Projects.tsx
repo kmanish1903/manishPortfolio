@@ -78,12 +78,7 @@ const Projects = () => {
     {
       title: 'Traffic Light Controller',
       description: 'An interactive traffic light simulation built with HTML, CSS, and JavaScript. Features dynamic state changes with Stop, Ready, and Go functionality, demonstrating DOM manipulation and event handling.',
-      images: [
-        '/lovable-uploads/307e9ad9-1c21-4fca-8ddc-6db3b82dc65e.png',
-        '/lovable-uploads/179a5f18-66ac-4457-a6b5-3792a457d0e4.png',
-        '/lovable-uploads/d6be7515-7ad5-46dd-bfe9-cb95cd65bf13.png',
-        '/lovable-uploads/b4570e7f-f46f-4a09-beb3-33fd760cec16.png'
-      ],
+      image: null,
       technologies: ['HTML5', 'CSS3', 'JavaScript'],
       features: [
         'Interactive traffic light states',
@@ -92,7 +87,7 @@ const Projects = () => {
         'Responsive button controls',
         'Visual feedback with color changes'
       ],
-      liveUrl: '#',
+      liveUrl: 'https://trafficligth.ccbp.tech',
       githubUrl: '#'
     }
   ];
