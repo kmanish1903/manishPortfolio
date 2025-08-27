@@ -73,7 +73,7 @@ const Projects = () => {
         'State management'
       ],
       liveUrl: 'https://incredecrm.ccbp.tech',
-      githubUrl: 'https://github.com/kmanish1903/dynamic-work'
+      githubUrl: null
     },
     {
       title: 'Traffic Light Controller',
@@ -88,7 +88,7 @@ const Projects = () => {
         'Visual feedback with color changes'
       ],
       liveUrl: 'https://trafficligth.ccbp.tech',
-      githubUrl: '#'
+      githubUrl: null
     }
   ];
 
@@ -171,15 +171,17 @@ const Projects = () => {
             <ExternalLink className="mr-2 h-4 w-4" />
             Live Demo
           </Button>
-          <Button 
-            size="sm" 
-            variant="outline" 
-            className="border-primary text-primary hover:bg-primary hover:text-white interactive-button"
-            onClick={() => window.open(project.githubUrl, '_blank')}
-          >
-            <Github className="mr-2 h-4 w-4" />
-            View Code
-          </Button>
+          {project.githubUrl && project.githubUrl !== '#' && (
+            <Button 
+              size="sm" 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-white interactive-button"
+              onClick={() => window.open(project.githubUrl, '_blank')}
+            >
+              <Github className="mr-2 h-4 w-4" />
+              View Code
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>
