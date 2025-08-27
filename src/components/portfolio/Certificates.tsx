@@ -39,7 +39,7 @@ const Certificates = () => {
       id: 5,
       title: 'Programming Foundations with Python',
       issuer: 'CCBP',
-      image: null,
+      image: '/lovable-uploads/8c38d868-322c-4e75-93a9-07b05cf2cf4a.png',
       url: 'https://certificates.ccbp.in/intensive/programming-foundations?id=VRQRIOUTKB'
     }
   ];
