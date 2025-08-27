@@ -72,7 +72,7 @@ const Projects = () => {
         'Clean user interface',
         'State management'
       ],
-      liveUrl: 'https://incredecrm.ccbp.tech',
+      liveUrl: 'https://kmanishincredec.ccbp.tech',
       githubUrl: null
     },
     {
@@ -87,7 +87,7 @@ const Projects = () => {
         'Responsive button controls',
         'Visual feedback with color changes'
       ],
-      liveUrl: 'https://trafficligth.ccbp.tech',
+      liveUrl: 'https://kmanishtraffic.ccbp.tech',
       githubUrl: null
     }
   ];
