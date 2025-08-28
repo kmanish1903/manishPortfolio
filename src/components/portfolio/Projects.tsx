@@ -1,12 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import { ExternalLink, Github } from 'lucide-react';
 import genvitexImage from '@/assets/genvitex-project.jpg';
 import mernImage from '@/assets/mern-crud-project.jpg';
 
 const Projects = () => {
-  const projects = [
+  const featuredProjects = [
     {
       title: 'Gen.Vitex',
       description: 'An AI-powered platform that converts YouTube videos into summaries and bullet points, featuring an integrated AI chatbot that answers queries related to the video content.',
@@ -37,81 +39,205 @@ const Projects = () => {
     }
   ];
 
+  const staticProjects = [
+    {
+      title: 'Static Web Project',
+      description: 'A static website project demonstrating clean HTML structure, CSS styling, and fundamental web development concepts.',
+      image: null, // Placeholder for now
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Clean semantic HTML structure',
+        'Custom CSS styling',
+        'Cross-browser compatibility',
+        'Professional layout design'
+      ],
+      liveUrl: 'https://0static01.ccbp.tech',
+      githubUrl: '#'
+    }
+  ];
+
+  const responsiveProjects = [
+    // Add responsive projects here
+  ];
+
+  const dynamicProjects = [
+    {
+      title: 'Interactive Counter',
+      description: 'A dynamic counter application demonstrating JavaScript interactivity with increment, decrement, and reset functionality using pure HTML, CSS, and JavaScript.',
+      image: null, // Placeholder for now
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Real-time counter updates',
+        'Interactive button controls',
+        'Clean user interface',
+        'State management'
+      ],
+      liveUrl: 'https://kmanishincredec.ccbp.tech',
+      githubUrl: null
+    },
+    {
+      title: 'Traffic Light Controller',
+      description: 'An interactive traffic light simulation built with HTML, CSS, and JavaScript. Features dynamic state changes with Stop, Ready, and Go functionality, demonstrating DOM manipulation and event handling.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Interactive traffic light states',
+        'Stop, Ready, and Go functionality',
+        'Smooth state transitions',
+        'Responsive button controls',
+        'Visual feedback with color changes'
+      ],
+      liveUrl: 'https://kmanishtraffic.ccbp.tech',
+      githubUrl: null
+    }
+  ];
+
+  const renderProjectCard = (project: any, index: number) => (
+    <Card key={index} className="gradient-card border-0 shadow-custom project-card overflow-hidden animate-scale-in" style={{ animationDelay: `${index * 200}ms` }}>
+      {project.image && (
+        <div className="relative overflow-hidden">
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-48 object-cover transition-smooth hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        </div>
+      )}
+      
+      {project.images && (
+        <div className="relative overflow-hidden">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {project.images.map((imageSrc: string, imgIndex: number) => (
+                <CarouselItem key={imgIndex}>
+                  <img 
+                    src={imageSrc} 
+                    alt={`${project.title} - State ${imgIndex + 1}`}
+                    className="w-full h-48 object-cover transition-smooth"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+        </div>
+      )}
+      
+      <CardHeader>
+        <CardTitle className="text-xl font-bold text-foreground">
+          {project.title}
+        </CardTitle>
+        <p className="text-muted-foreground leading-relaxed">
+          {project.description}
+        </p>
+      </CardHeader>
+
+      <CardContent className="space-y-4">
+        {/* Technologies */}
+        <div>
+          <h4 className="font-semibold text-foreground mb-2">Technologies</h4>
+          <div className="flex flex-wrap gap-2">
+            {project.technologies.map((tech: string, techIndex: number) => (
+              <Badge key={techIndex} variant="secondary" className="text-xs">
+                {tech}
+              </Badge>
+            ))}
+          </div>
+        </div>
+
+        {/* Features */}
+        <div>
+          <h4 className="font-semibold text-foreground mb-2">Key Features</h4>
+          <ul className="text-sm text-muted-foreground space-y-1">
+            {project.features.map((feature: string, featureIndex: number) => (
+              <li key={featureIndex} className="flex items-start">
+                <span className="text-primary mr-2">•</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex gap-3 pt-4">
+          <Button 
+            size="sm" 
+            className="gradient-hero text-white shadow-glow interactive-button"
+            onClick={() => window.open(project.liveUrl, '_blank')}
+          >
+            <ExternalLink className="mr-2 h-4 w-4" />
+            Live Demo
+          </Button>
+          {project.githubUrl && project.githubUrl !== '#' && (
+            <Button 
+              size="sm" 
+              variant="outline" 
+              className="border-primary text-primary hover:bg-primary hover:text-white interactive-button"
+              onClick={() => window.open(project.githubUrl, '_blank')}
+            >
+              <Github className="mr-2 h-4 w-4" />
+              View Code
+            </Button>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+
   return (
     <section id="projects" className="py-20 gradient-subtle">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Featured Projects
+            My Work
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A showcase of my technical skills and problem-solving abilities through 
-            real-world applications.
+            real-world applications and course projects.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <Card key={index} className="gradient-card border-0 shadow-custom project-card overflow-hidden animate-scale-in" style={{ animationDelay: `${index * 200}ms` }}>
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-smooth hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-              
-              <CardHeader>
-                <CardTitle className="text-xl font-bold text-foreground">
-                  {project.title}
-                </CardTitle>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-              </CardHeader>
+        <Tabs defaultValue="featured" className="w-full">
+          <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsTrigger value="featured">Featured</TabsTrigger>
+            <TabsTrigger value="static">Static</TabsTrigger>
+            <TabsTrigger value="responsive">Responsive</TabsTrigger>
+            <TabsTrigger value="dynamic">Dynamic</TabsTrigger>
+          </TabsList>
 
-              <CardContent className="space-y-4">
-                {/* Technologies */}
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Technologies</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <Badge key={techIndex} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
+          <TabsContent value="featured">
+            <div className="grid md:grid-cols-2 gap-8">
+              {featuredProjects.map((project, index) => renderProjectCard(project, index))}
+            </div>
+          </TabsContent>
 
-                {/* Features */}
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">Key Features</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {project.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <span className="text-primary mr-2">•</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <TabsContent value="static">
+            <div className="grid md:grid-cols-2 gap-8">
+              {staticProjects.map((project, index) => renderProjectCard(project, index))}
+            </div>
+          </TabsContent>
 
-                {/* Action Buttons */}
-                <div className="flex gap-3 pt-4">
-                  <Button size="sm" className="gradient-hero text-white shadow-glow interactive-button">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Live Demo
-                  </Button>
-                  <Button size="sm" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white interactive-button">
-                    <Github className="mr-2 h-4 w-4" />
-                    View Code
-                  </Button>
+          <TabsContent value="responsive">
+            <div className="grid md:grid-cols-2 gap-8">
+              {responsiveProjects.length > 0 ? (
+                responsiveProjects.map((project, index) => renderProjectCard(project, index))
+              ) : (
+                <div className="col-span-2 text-center py-12">
+                  <p className="text-muted-foreground">Responsive projects coming soon...</p>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              )}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="dynamic">
+            <div className="grid md:grid-cols-2 gap-8">
+              {dynamicProjects.map((project, index) => renderProjectCard(project, index))}
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );

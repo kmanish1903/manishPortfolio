@@ -34,6 +34,13 @@ const Certificates = () => {
       issuer: 'Coursera',
       image: 'https://res.cloudinary.com/dpxvhojoh/image/upload/v1755881312/Screenshot_2025-08-22_221252_v0s7mq.png',
       url: 'https://coursera.org/share/ef07bd252ec10ea4491becd7663c6563'
+    },
+    {
+      id: 5,
+      title: 'Programming Foundations with Python',
+      issuer: 'CCBP',
+      image: '/lovable-uploads/8c38d868-322c-4e75-93a9-07b05cf2cf4a.png',
+      url: 'https://certificates.ccbp.in/intensive/programming-foundations?id=VRQRIOUTKB'
     }
   ];
 
