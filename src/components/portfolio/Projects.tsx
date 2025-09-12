@@ -62,9 +62,121 @@ const Projects = () => {
 
   const dynamicProjects = [
     {
+      title: 'My Todo App',
+      description: 'A comprehensive todo application for managing tasks and daily activities with add, delete, and completion tracking functionality.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Add and delete tasks',
+        'Mark tasks as complete',
+        'Local storage persistence',
+        'Clean user interface'
+      ],
+      liveUrl: 'https://kmanishmytodo.ccbp.tech/',
+      githubUrl: null
+    },
+    {
+      title: 'Array Splice Playground',
+      description: 'An interactive learning tool demonstrating the JavaScript splice method with real-time array manipulation and visual feedback.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Interactive splice operations',
+        'Real-time array visualization',
+        'Educational interface',
+        'Live code examples'
+      ],
+      liveUrl: 'https://manishjslearnin.ccbp.tech',
+      githubUrl: null
+    },
+    {
+      title: 'Array FindIndex Tool',
+      description: 'A practical utility for finding index positions in arrays with interactive search functionality and visual element highlighting.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Find index in arrays',
+        'Interactive search',
+        'Visual highlighting',
+        'Real-time results'
+      ],
+      liveUrl: 'https://1903findindex.ccbp.tech',
+      githubUrl: null
+    },
+    {
+      title: 'Random Reply Chatbot',
+      description: 'A simple chatbot that provides random responses from a predefined array, showcasing basic AI simulation and user interaction.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Random reply generation',
+        'Chat interface',
+        'Predefined responses',
+        'Interactive conversation'
+      ],
+      liveUrl: 'https://kmanishchatbot.ccbp.tech',
+      githubUrl: null
+    },
+    {
+      title: 'Clear Counter',
+      description: 'A counter application with start, increment, and clear functionality. The counter progresses automatically and can be stopped and reset with user controls.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Auto-incrementing counter',
+        'Start/stop controls',
+        'Clear functionality',
+        'Real-time updates'
+      ],
+      liveUrl: 'https://clearcount1903.ccbp.tech',
+      githubUrl: null
+    },
+    {
+      title: 'Peace Timer',
+      description: 'A meditation and relaxation timer with preset durations (20s, 30s, 40s, 1min) that counts down to provide moments of peace and mindfulness.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Multiple timer presets',
+        'Countdown functionality',
+        'Peace and mindfulness focus',
+        'Clean timer interface'
+      ],
+      liveUrl: 'https://peacetimer1903.ccbp.tech',
+      githubUrl: null
+    },
+    {
+      title: 'Dark/Light Theme Toggle',
+      description: 'A theme switcher application that dynamically changes the background and styling based on user input, demonstrating CSS manipulation and theme management.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Dynamic theme switching',
+        'Dark and light modes',
+        'Real-time background changes',
+        'User input controls'
+      ],
+      liveUrl: 'https://manishdarklyt.ccbp.tech',
+      githubUrl: null
+    },
+    {
+      title: 'Bomb Defuser Game',
+      description: 'An interactive game where players must type "defuse" to stop a countdown timer and defuse the bomb, creating an engaging and thrilling user experience.',
+      image: null,
+      technologies: ['HTML5', 'CSS3', 'JavaScript'],
+      features: [
+        'Countdown timer',
+        'Text input validation',
+        'Game logic implementation',
+        'Success/failure feedback'
+      ],
+      liveUrl: 'https://k1903bombdefuse.ccbp.tech',
+      githubUrl: null
+    },
+    {
       title: 'Interactive Counter',
       description: 'A dynamic counter application demonstrating JavaScript interactivity with increment, decrement, and reset functionality using pure HTML, CSS, and JavaScript.',
-      image: null, // Placeholder for now
+      image: null,
       technologies: ['HTML5', 'CSS3', 'JavaScript'],
       features: [
         'Real-time counter updates',
