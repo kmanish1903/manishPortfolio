@@ -312,12 +312,12 @@ const Projects = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="featured" className="w-full">
+        <Tabs defaultValue="static" className="w-full">
           <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="featured">Featured</TabsTrigger>
             <TabsTrigger value="static">Static</TabsTrigger>
-            <TabsTrigger value="responsive">Responsive</TabsTrigger>
             <TabsTrigger value="dynamic">Dynamic</TabsTrigger>
+            <TabsTrigger value="responsive">Responsive</TabsTrigger>
+            <TabsTrigger value="featured">Featured</TabsTrigger>
           </TabsList>
 
           <TabsContent value="featured">
