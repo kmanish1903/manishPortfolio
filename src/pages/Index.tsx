@@ -5,7 +5,7 @@ import Projects from '@/components/portfolio/Projects';
 import Skills from '@/components/portfolio/Skills';
 import Certificates from '@/components/portfolio/Certificates';
 import Contact from '@/components/portfolio/Contact';
-import Footer from '@/components/portfolio/Footer';
+
 
 const Index = () => {
   return (
@@ -19,7 +19,7 @@ const Index = () => {
         <Certificates />
         <Contact />
       </main>
-      <Footer />
+      
     </div>
   );
 };
