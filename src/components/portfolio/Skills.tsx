@@ -87,6 +87,47 @@ const Skills = () => {
           ))}
         </div>
 
+        {/* GitHub Stats Section */}
+        <div className="mt-16 max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+              GitHub Statistics
+            </h3>
+            <p className="text-muted-foreground">
+              My coding journey visualized
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-lg overflow-hidden border border-border bg-card p-4 card-hover animate-slide-in-left">
+              <img 
+                src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=transparent&hide_border=true&title_color=8b5cf6&icon_color=8b5cf6&text_color=e5e7eb&bg_color=00000000" 
+                alt="GitHub Stats"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="rounded-lg overflow-hidden border border-border bg-card p-4 card-hover animate-slide-in-right delay-200">
+              <img 
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=transparent&hide_border=true&title_color=8b5cf6&text_color=e5e7eb&bg_color=00000000" 
+                alt="Top Languages"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+
+          <div className="mt-6 text-center">
+            <a 
+              href="https://github.com/YOUR_GITHUB_USERNAME" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary hover:underline transition-all duration-300 hover:text-primary/80"
+            >
+              <GitBranch className="h-5 w-5" />
+              View Full GitHub Profile
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
   );

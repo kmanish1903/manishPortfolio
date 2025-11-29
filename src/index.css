@@ -355,4 +355,13 @@
   .parallax-bg {
     @apply fixed inset-0 bg-gradient-glow opacity-20 animate-pulse;
   }
+
+  /* Animation delays */
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-1000 {
+    animation-delay: 1000ms;
+  }
 }
