@@ -1,28 +1,20 @@
 import { Mail, Download, Github, Linkedin, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTypingEffect } from '@/hooks/useTypingEffect';
-
 const Hero = () => {
-  const typingText = useTypingEffect([
-    'MERN Stack Developer',
-    'DevOps Enthusiast',
-    'Problem Solver',
-    'Continuous Learner'
-  ], 100, 50, 2000);
-
+  const typingText = useTypingEffect(['MERN Stack Developer', 'DevOps Enthusiast', 'Problem Solver', 'Continuous Learner'], 100, 50, 2000);
   const handleContactMe = () => {
     const element = document.querySelector('#contact');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const handleDownloadResume = () => {
     window.open('/resume.pdf', '_blank');
   };
-
-  return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
+  return <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-background">
       {/* Enhanced Background decoration with floating tech elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
@@ -37,7 +29,7 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center animate-fade-in-up">
+        <div className="text-center animate-fade-in-up text-accent-foreground">
           {/* Greeting with wave animation */}
           <div className="text-lg sm:text-xl text-muted-foreground mb-4 flex items-center justify-center gap-2">
             <span>Hello, I'm</span>
@@ -70,26 +62,17 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
               </span>
-              <span className="text-sm font-medium text-primary">Available for opportunities</span>
+              <span className="text-sm font-medium text-primary">Open to Work • Eager to Build</span>
             </div>
           </div>
           
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-            <Button 
-              size="lg" 
-              onClick={handleContactMe}
-              className="gradient-hero text-white shadow-glow interactive-button"
-            >
+            <Button size="lg" onClick={handleContactMe} className="gradient-hero text-white shadow-glow interactive-button">
               <Mail className="mr-2 h-5 w-5" />
               Contact Me
             </Button>
-            <Button 
-              size="lg" 
-              onClick={handleDownloadResume}
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-md hover:shadow-glow"
-            >
+            <Button size="lg" onClick={handleDownloadResume} variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-md hover:shadow-glow">
               <Download className="mr-2 h-5 w-5" />
               Download Resume
             </Button>
@@ -97,36 +80,21 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex justify-center gap-4">
-            <a
-              href="https://github.com/YOUR_GITHUB_USERNAME"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110"
-            >
+            <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
               <Github className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               <span className="sr-only">GitHub</span>
             </a>
-            <a
-              href="https://linkedin.com/in/YOUR_LINKEDIN"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110"
-            >
+            <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener noreferrer" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
               <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               <span className="sr-only">LinkedIn</span>
             </a>
-            <a
-              href="mailto:your.email@example.com"
-              className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110"
-            >
+            <a href="mailto:your.email@example.com" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
               <Send className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               <span className="sr-only">Email</span>
             </a>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
