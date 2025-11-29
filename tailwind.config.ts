@@ -88,11 +88,91 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-20px)'
+					}
+				},
+				'slide-in-left': {
+					from: {
+						opacity: '0',
+						transform: 'translateX(-50px)'
+					},
+					to: {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'slide-in-right': {
+					from: {
+						opacity: '0',
+						transform: 'translateX(50px)'
+					},
+					to: {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'bounce-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.3) translateY(30px)'
+					},
+					'50%': {
+						transform: 'scale(1.05) translateY(-10px)'
+					},
+					'70%': {
+						transform: 'scale(0.95) translateY(5px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1) translateY(0)'
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						opacity: '1',
+						filter: 'drop-shadow(0 0 8px hsl(var(--primary) / 0.5))'
+					},
+					'50%': {
+						opacity: '0.8',
+						filter: 'drop-shadow(0 0 16px hsl(var(--primary) / 0.8))'
+					}
+				},
+				'text-shimmer': {
+					'0%': {
+						backgroundPosition: '0% 50%'
+					},
+					'50%': {
+						backgroundPosition: '100% 50%'
+					},
+					'100%': {
+						backgroundPosition: '0% 50%'
+					}
+				},
+				'rotate-slow': {
+					from: {
+						transform: 'rotate(0deg)'
+					},
+					to: {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'slide-in-left': 'slide-in-left 0.8s ease-out',
+				'slide-in-right': 'slide-in-right 0.8s ease-out',
+				'bounce-in': 'bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'text-shimmer': 'text-shimmer 3s linear infinite',
+				'rotate-slow': 'rotate-slow 20s linear infinite'
 			}
 		}
 	},
