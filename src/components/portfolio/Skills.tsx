@@ -48,29 +48,26 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-12 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Technical Skills
+        <div className="text-center mb-8 animate-fade-in-up">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+            Skills
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive skill set spanning full-stack development and computer science fundamentals.
-          </p>
         </div>
 
         {/* Category Tabs */}
-        <div className="mb-12 flex justify-center">
-          <div className="inline-flex flex-wrap gap-3 p-2 rounded-xl bg-card/50 backdrop-blur-sm border border-border">
+        <div className="mb-6 flex justify-center">
+          <div className="inline-flex flex-wrap gap-2 p-1.5 rounded-lg bg-card/50 backdrop-blur-sm border border-border">
             {categories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`
-                  px-6 py-2.5 rounded-lg font-medium transition-all duration-300
+                  px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-300
                   ${
                     activeCategory === category.id
-                      ? 'gradient-hero text-white shadow-glow scale-105'
+                      ? 'gradient-hero text-white shadow-glow'
                       : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
                   }
                 `}
@@ -82,14 +79,10 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="max-w-5xl mx-auto">
-          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
-            <span className="text-primary">→</span> Work Stack
-          </h3>
-          
+        <div className="max-w-4xl mx-auto">
           <Card className="gradient-card border-0 shadow-custom">
-            <CardContent className="p-8">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            <CardContent className="p-4">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3">
                 {allSkills.map((skill, index) => {
                   const isHighlighted = isSkillHighlighted(skill);
                   
@@ -97,8 +90,8 @@ const Skills = () => {
                     <div
                       key={index}
                       className={`
-                        group relative flex flex-col items-center gap-2 p-4 rounded-xl
-                        transition-all duration-300 cursor-pointer
+                        group relative flex flex-col items-center gap-1.5 p-2 rounded-lg
+                        transition-all duration-300
                         ${
                           isHighlighted
                             ? 'scale-105 opacity-100'
@@ -106,13 +99,13 @@ const Skills = () => {
                         }
                       `}
                       style={{
-                        transitionDelay: `${index * 30}ms`,
+                        transitionDelay: `${index * 20}ms`,
                       }}
                     >
                       {/* Icon */}
                       <div
                         className={`
-                          text-3xl mb-1 transition-transform duration-300
+                          text-2xl transition-transform duration-300
                           ${isHighlighted ? 'group-hover:scale-110' : ''}
                         `}
                       >
@@ -122,7 +115,7 @@ const Skills = () => {
                       {/* Skill Name */}
                       <span
                         className={`
-                          text-sm font-medium text-center transition-colors duration-300
+                          text-xs font-medium text-center transition-colors duration-300
                           ${
                             isHighlighted
                               ? 'text-foreground'
@@ -135,12 +128,7 @@ const Skills = () => {
                       
                       {/* Highlight Underline */}
                       {isHighlighted && (
-                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-12 h-1 gradient-hero rounded-full animate-scale-in" />
-                      )}
-                      
-                      {/* Hover Effect */}
-                      {isHighlighted && (
-                        <div className="absolute inset-0 bg-primary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-8 h-0.5 gradient-hero rounded-full" />
                       )}
                     </div>
                   );
