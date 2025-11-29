@@ -1,4 +1,4 @@
-import { Mail, Download, Github, Linkedin, Send } from 'lucide-react';
+import { Mail, Download, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTypingEffect } from '@/hooks/useTypingEffect';
 const Hero = () => {
@@ -80,17 +80,13 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex justify-center gap-4">
-            <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
+            <a href="https://github.com/kmanish1903" target="_blank" rel="noopener noreferrer" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
               <Github className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               <span className="sr-only">GitHub</span>
             </a>
-            <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener noreferrer" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
+            <a href="https://linkedin.com/in/kmanish1903" target="_blank" rel="noopener noreferrer" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
               <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
               <span className="sr-only">LinkedIn</span>
-            </a>
-            <a href="mailto:your.email@example.com" className="group relative p-3 rounded-full bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-all duration-300 hover:scale-110">
-              <Send className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              <span className="sr-only">Email</span>
             </a>
           </div>
         </div>
