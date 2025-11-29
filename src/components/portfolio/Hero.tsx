@@ -1,12 +1,24 @@
-import { Mail } from 'lucide-react';
+import { Mail, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTypingEffect } from '@/hooks/useTypingEffect';
 
 const Hero = () => {
+  const typingText = useTypingEffect([
+    'MERN Stack Developer',
+    'DevOps Enthusiast',
+    'Problem Solver',
+    'Continuous Learner'
+  ], 100, 50, 2000);
+
   const handleContactMe = () => {
     const element = document.querySelector('#contact');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleDownloadResume = () => {
+    window.open('/resume.pdf', '_blank');
   };
 
   return (
@@ -25,11 +37,15 @@ const Hero = () => {
             <span className="text-primary">Continuous Learner.</span>
           </h1>
           
-          <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Final-year B.Tech CSE | MERN Stack Developer | Future DevOps Engineer
-          </p>
+          <div className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto min-h-[3rem] flex items-center justify-center">
+            <span className="inline-block">Final-year B.Tech CSE | </span>
+            <span className="text-primary font-semibold ml-2 inline-block min-w-[280px] text-left">
+              {typingText}
+              <span className="animate-pulse">|</span>
+            </span>
+          </div>
           
-          <div className="flex justify-center">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button 
               size="lg" 
               onClick={handleContactMe}
@@ -37,6 +53,15 @@ const Hero = () => {
             >
               <Mail className="mr-2 h-5 w-5" />
               Contact Me
+            </Button>
+            <Button 
+              size="lg" 
+              onClick={handleDownloadResume}
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 shadow-md hover:shadow-glow"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download Resume
             </Button>
           </div>
         </div>
