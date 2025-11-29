@@ -1,43 +1,50 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
-import { 
-  Database, 
-  Server, 
-  Code, 
-  Settings, 
-  Layers,
-  GitBranch 
-} from 'lucide-react';
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+
+type SkillCategory = 'all' | 'frontend' | 'backend' | 'databases' | 'devops' | 'tools' | 'languages';
+
+interface Skill {
+  name: string;
+  icon: string;
+  categories: SkillCategory[];
+}
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: 'MERN Stack',
-      icon: Layers,
-      skills: [
-        { name: 'React.js', level: 85 },
-        { name: 'Node.js', level: 80 },
-        { name: 'Express.js', level: 75 },
-        { name: 'MongoDB', level: 70 }
-      ]
-    },
-    {
-      title: 'Core Skills',
-      icon: Code,
-      skills: [
-        { name: 'JavaScript', level: 85 },
-        { name: 'Data Structures', level: 80 },
-        { name: 'Git', level: 85 },
-        { name: 'Problem Solving', level: 85 }
-      ]
-    }
+  const [activeCategory, setActiveCategory] = useState<SkillCategory>('all');
+
+  const categories = [
+    { id: 'all' as SkillCategory, label: 'All Skills' },
+    { id: 'frontend' as SkillCategory, label: 'Frontend' },
+    { id: 'backend' as SkillCategory, label: 'Backend' },
+    { id: 'databases' as SkillCategory, label: 'Databases' },
+    { id: 'devops' as SkillCategory, label: 'DevOps' },
+    { id: 'tools' as SkillCategory, label: 'Tools' },
+    { id: 'languages' as SkillCategory, label: 'Languages' },
   ];
 
-  const getProgressColor = (level: number) => {
-    if (level >= 80) return 'bg-green-500';
-    if (level >= 70) return 'bg-blue-500';
-    if (level >= 60) return 'bg-yellow-500';
-    return 'bg-gray-400';
+  const allSkills: Skill[] = [
+    { name: 'React.js', icon: '⚛️', categories: ['frontend'] },
+    { name: 'JavaScript', icon: 'JS', categories: ['frontend', 'backend', 'languages'] },
+    { name: 'Node.js', icon: '🟢', categories: ['backend'] },
+    { name: 'HTML', icon: '📄', categories: ['frontend'] },
+    { name: 'CSS', icon: '🎨', categories: ['frontend'] },
+    { name: 'Bootstrap', icon: '🅱️', categories: ['frontend'] },
+    { name: 'Python', icon: '🐍', categories: ['languages', 'backend'] },
+    { name: 'C', icon: 'Ⓒ', categories: ['languages'] },
+    { name: 'MongoDB', icon: '🍃', categories: ['databases'] },
+    { name: 'MySQL', icon: '🐬', categories: ['databases'] },
+    { name: 'Git', icon: '🔀', categories: ['tools'] },
+    { name: 'GitHub', icon: '🐙', categories: ['tools'] },
+    { name: 'Vercel', icon: '▲', categories: ['devops'] },
+    { name: 'Express.js', icon: '📡', categories: ['backend'] },
+    { name: 'Command Line', icon: '💻', categories: ['tools'] },
+    { name: 'SQLite', icon: '📊', categories: ['databases'] },
+    { name: 'REST APIs', icon: '🔌', categories: ['backend'] },
+  ];
+
+  const isSkillHighlighted = (skill: Skill) => {
+    if (activeCategory === 'all') return true;
+    return skill.categories.includes(activeCategory);
   };
 
   return (
@@ -48,86 +55,100 @@ const Skills = () => {
             Technical Skills
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive skill set spanning full-stack development, DevOps practices, 
-            and computer science fundamentals.
+            A comprehensive skill set spanning full-stack development and computer science fundamentals.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {skillCategories.map((category, index) => (
-            <Card key={index} className="gradient-card border-0 shadow-custom card-hover animate-scale-in"  style={{ animationDelay: `${index * 200}ms` }}>
-              <CardHeader className="text-center">
-                <div className="mx-auto mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                  <category.icon className="h-8 w-8 text-primary" />
-                </div>
-                <CardTitle className="text-xl font-bold text-foreground">
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-
-              <CardContent className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-foreground">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                    </div>
-                     <div className="skill-bar">
-                       <div className="skill-progress">
-                         <div 
-                           className="skill-fill"
-                           style={{ width: `${skill.level}%`, animationDelay: `${skillIndex * 150 + 500}ms` }}
-                         />
-                       </div>
-                     </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          ))}
+        {/* Category Tabs */}
+        <div className="mb-12 flex justify-center">
+          <div className="inline-flex flex-wrap gap-3 p-2 rounded-xl bg-card/50 backdrop-blur-sm border border-border">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`
+                  px-6 py-2.5 rounded-lg font-medium transition-all duration-300
+                  ${
+                    activeCategory === category.id
+                      ? 'gradient-hero text-white shadow-glow scale-105'
+                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/50'
+                  }
+                `}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* GitHub Stats Section */}
-        <div className="mt-16 max-w-5xl mx-auto">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
-              GitHub Statistics
-            </h3>
-            <p className="text-muted-foreground">
-              My coding journey visualized
-            </p>
-          </div>
+        {/* Skills Grid */}
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
+            <span className="text-primary">→</span> Work Stack
+          </h3>
           
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="rounded-lg overflow-hidden border border-border bg-card p-4 card-hover animate-slide-in-left">
-              <img 
-                src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=transparent&hide_border=true&title_color=8b5cf6&icon_color=8b5cf6&text_color=e5e7eb&bg_color=00000000" 
-                alt="GitHub Stats"
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="rounded-lg overflow-hidden border border-border bg-card p-4 card-hover animate-slide-in-right delay-200">
-              <img 
-                src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=transparent&hide_border=true&title_color=8b5cf6&text_color=e5e7eb&bg_color=00000000" 
-                alt="Top Languages"
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
-
-          <div className="mt-6 text-center">
-            <a 
-              href="https://github.com/YOUR_GITHUB_USERNAME" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary hover:underline transition-all duration-300 hover:text-primary/80"
-            >
-              <GitBranch className="h-5 w-5" />
-              View Full GitHub Profile
-            </a>
-          </div>
+          <Card className="gradient-card border-0 shadow-custom">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                {allSkills.map((skill, index) => {
+                  const isHighlighted = isSkillHighlighted(skill);
+                  
+                  return (
+                    <div
+                      key={index}
+                      className={`
+                        group relative flex flex-col items-center gap-2 p-4 rounded-xl
+                        transition-all duration-300 cursor-pointer
+                        ${
+                          isHighlighted
+                            ? 'scale-105 opacity-100'
+                            : 'scale-95 opacity-40'
+                        }
+                      `}
+                      style={{
+                        transitionDelay: `${index * 30}ms`,
+                      }}
+                    >
+                      {/* Icon */}
+                      <div
+                        className={`
+                          text-3xl mb-1 transition-transform duration-300
+                          ${isHighlighted ? 'group-hover:scale-110' : ''}
+                        `}
+                      >
+                        {skill.icon}
+                      </div>
+                      
+                      {/* Skill Name */}
+                      <span
+                        className={`
+                          text-sm font-medium text-center transition-colors duration-300
+                          ${
+                            isHighlighted
+                              ? 'text-foreground'
+                              : 'text-muted-foreground'
+                          }
+                        `}
+                      >
+                        {skill.name}
+                      </span>
+                      
+                      {/* Highlight Underline */}
+                      {isHighlighted && (
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-12 h-1 gradient-hero rounded-full animate-scale-in" />
+                      )}
+                      
+                      {/* Hover Effect */}
+                      {isHighlighted && (
+                        <div className="absolute inset-0 bg-primary/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
         </div>
-
       </div>
     </section>
   );
