@@ -21,6 +21,7 @@
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     --primary-hover: 217 91% 55%;
+    --primary-glow: 217 91% 75%;
 
     --secondary: 220 14% 96%;
     --secondary-foreground: 220 20% 25%;
@@ -85,6 +86,7 @@
     --primary: 217 91% 65%;
     --primary-foreground: 220 27% 8%;
     --primary-hover: 217 91% 70%;
+    --primary-glow: 217 91% 80%;
 
     --secondary: 220 20% 15%;
     --secondary-foreground: 220 15% 85%;
@@ -177,6 +179,27 @@
     }
     50% {
       transform: translateY(-20px);
+    }
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(20deg);
+    }
+    75% {
+      transform: rotate(-20deg);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
     }
   }
 
@@ -292,6 +315,19 @@
     animation: float 6s ease-in-out infinite;
   }
 
+  .animate-wave {
+    animation: wave 2s ease-in-out infinite;
+  }
+
+  .gradient-text-hero {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(217 91% 75%), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+    background-size: 200% 200%;
+  }
+
   .animate-slide-in-left {
     animation: slide-in-left 0.8s ease-out;
   }
@@ -359,6 +395,14 @@
   /* Animation delays */
   .delay-200 {
     animation-delay: 200ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .delay-700 {
+    animation-delay: 700ms;
   }
 
   .delay-1000 {
