@@ -3,7 +3,7 @@
 Welcome to my personal portfolio project!  
 This website showcases my skills, projects, certificates, and provides a way for recruiters/clients to connect with me.
 
-🔗 **Live URL**: manish-portfolio-ashy.vercel.app
+🔗 **Live URL**: kmanish1903.vercel.app
 
 ---
 
