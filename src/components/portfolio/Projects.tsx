@@ -12,6 +12,7 @@ import randomNumberImg from '@/assets/react-projects/random-number.png';
 import destinationSearchImg from '@/assets/react-projects/destination-search.png';
 import balanceWithdrawImg from '@/assets/react-projects/balance-withdraw.png';
 import googleSearchImg from '@/assets/react-projects/google-search.png';
+import browserHistoryImg from '@/assets/react-projects/browser-history.png';
 import counterImg from '@/assets/react-projects/counter.png';
 import todoImg from '@/assets/react-projects/todo.png';
 import ratingImg from '@/assets/react-projects/rating.png';
@@ -41,9 +42,8 @@ const Projects = () => {
     },
     {
       title: 'Browser History',
-      image: null, // No screenshot provided
+      image: browserHistoryImg,
       liveUrl: 'https://reactcphistory.ccbp.tech/',
-      gradient: 'from-violet-500 to-purple-600'
     },
     {
       title: 'Counter App',
