@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Sparkles, Code2, Layers } from 'lucide-react';
 import genvitexImage from '@/assets/genvitex-project.jpg';
 import mernImage from '@/assets/mern-crud-project.jpg';
 
@@ -18,47 +18,55 @@ import todoImg from '@/assets/react-projects/todo.png';
 import ratingImg from '@/assets/react-projects/rating.png';
 
 const Projects = () => {
-  // React practice projects with screenshots
+  // React practice projects with screenshots and skill tags
   const reactProjects = [
     {
       title: 'Random Number Generator',
       image: randomNumberImg,
       liveUrl: 'https://cp6rannum.ccbp.tech/',
+      skills: ['useState', 'Events'],
     },
     {
       title: 'Destination Search',
       image: destinationSearchImg,
       liveUrl: 'https://reactcdp6.ccbp.tech/',
+      skills: ['Props', 'Filter', 'Lists'],
     },
     {
       title: 'Balance Withdraw',
       image: balanceWithdrawImg,
       liveUrl: 'https://reactcp7amount.ccbp.tech/',
+      skills: ['useState', 'State Logic'],
     },
     {
       title: 'Google Search Clone',
       image: googleSearchImg,
       liveUrl: 'https://reactcp71903.ccbp.tech/',
+      skills: ['Conditional Rendering', 'Lists'],
     },
     {
       title: 'Browser History',
       image: browserHistoryImg,
       liveUrl: 'https://reactcphistory.ccbp.tech/',
+      skills: ['Filter', 'Delete', 'Lists'],
     },
     {
       title: 'Counter App',
       image: counterImg,
       liveUrl: 'https://reactcp9counter.ccbp.tech/',
+      skills: ['useState', 'State Mgmt'],
     },
     {
       title: 'Todo Application',
       image: todoImg,
       liveUrl: 'https://reactcp9todo.ccbp.tech/',
+      skills: ['CRUD', 'useState', 'Lists'],
     },
     {
       title: 'Rating Widget',
       image: ratingImg,
       liveUrl: 'https://reactcp11rating.ccbp.tech/',
+      skills: ['Conditional UI', 'Events'],
     },
   ];
 
@@ -258,52 +266,66 @@ const Projects = () => {
     }
   ];
 
-  // Render React project card (minimal, professional style)
+  // Render React project card (glassmorphism + gradient border + skill tags)
   const renderReactProjectCard = (project: any, index: number) => (
-    <a
+    <div
       key={index}
-      href={project.liveUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-xl border border-border/50 bg-card shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-primary/50 animate-scale-in"
-      style={{ animationDelay: `${index * 100}ms` }}
+      className="gradient-border-wrapper animate-scale-in"
+      style={{ animationDelay: `${index * 80}ms` }}
     >
-      {/* Image or Gradient Placeholder */}
-      <div className="relative aspect-video overflow-hidden">
-        {project.image ? (
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative block overflow-hidden rounded-xl glass-card shine-effect transition-all duration-500 hover:shadow-glow"
+      >
+        {/* Image */}
+        <div className="relative aspect-video overflow-hidden">
           <img 
             src={project.image} 
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-        ) : (
-          <div className={`w-full h-full bg-gradient-to-br ${project.gradient || 'from-primary/20 to-accent/20'} flex items-center justify-center`}>
-            <span className="text-4xl">⚛️</span>
+          
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
+          
+          {/* Hover Overlay with View Button */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <span className="flex items-center gap-2 text-primary-foreground font-semibold bg-primary px-5 py-2.5 rounded-full text-sm shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+              <ExternalLink className="h-4 w-4" />
+              View Live
+            </span>
           </div>
-        )}
-        
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
-          <span className="flex items-center gap-2 text-foreground font-medium bg-primary/90 px-4 py-2 rounded-full text-sm">
-            <ExternalLink className="h-4 w-4" />
-            View Project
-          </span>
+
+          {/* React Badge Top Right */}
+          <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm rounded-full px-2.5 py-1 flex items-center gap-1.5 text-xs font-medium text-primary border border-primary/30">
+            <Code2 className="h-3 w-3" />
+            React
+          </div>
         </div>
-      </div>
-      
-      {/* Title Section */}
-      <div className="p-4 flex items-center gap-3">
-        <span className="text-xl">⚛️</span>
-        <div>
-          <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+        
+        {/* Content Section */}
+        <div className="p-4 space-y-3">
+          <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-lg">
             {project.title}
           </h3>
-          <Badge variant="secondary" className="text-xs mt-1">
-            React.js
-          </Badge>
+          
+          {/* Skill Tags */}
+          <div className="flex flex-wrap gap-1.5">
+            {project.skills?.map((skill: string, skillIndex: number) => (
+              <Badge 
+                key={skillIndex} 
+                variant="outline" 
+                className="text-[10px] px-2 py-0.5 bg-primary/10 border-primary/30 text-primary"
+              >
+                {skill}
+              </Badge>
+            ))}
+          </div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   );
 
   const renderProjectCard = (project: any, index: number) => (
@@ -430,11 +452,40 @@ const Projects = () => {
           </TabsContent>
 
           <TabsContent value="react">
-            <div className="mb-6 text-center">
-              <p className="text-muted-foreground">
-                Interactive React.js projects demonstrating component architecture and state management
-              </p>
+            {/* Stats Header */}
+            <div className="mb-8 glass-card rounded-2xl p-6 border border-primary/20">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                {/* Left: Title & Description */}
+                <div className="text-center md:text-left">
+                  <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
+                    <Sparkles className="h-5 w-5 text-primary" />
+                    <h3 className="text-xl font-bold text-foreground">React.js Projects</h3>
+                  </div>
+                  <p className="text-muted-foreground text-sm">
+                    Interactive applications demonstrating component architecture & state management
+                  </p>
+                </div>
+                
+                {/* Right: Stats */}
+                <div className="flex items-center gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-primary stats-glow">{reactProjects.length}</div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wider">Projects</div>
+                  </div>
+                  <div className="w-px h-10 bg-border"></div>
+                  <div className="flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full">
+                    <Code2 className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium text-primary">React.js</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-full">
+                    <Layers className="h-4 w-4 text-accent" />
+                    <span className="text-sm font-medium text-accent-foreground">Components</span>
+                  </div>
+                </div>
+              </div>
             </div>
+            
+            {/* Projects Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {reactProjects.map((project, index) => renderReactProjectCard(project, index))}
             </div>
