@@ -7,7 +7,61 @@ import { ExternalLink, Github } from 'lucide-react';
 import genvitexImage from '@/assets/genvitex-project.jpg';
 import mernImage from '@/assets/mern-crud-project.jpg';
 
+// React project images
+import randomNumberImg from '@/assets/react-projects/random-number.png';
+import destinationSearchImg from '@/assets/react-projects/destination-search.png';
+import balanceWithdrawImg from '@/assets/react-projects/balance-withdraw.png';
+import googleSearchImg from '@/assets/react-projects/google-search.png';
+import counterImg from '@/assets/react-projects/counter.png';
+import todoImg from '@/assets/react-projects/todo.png';
+import ratingImg from '@/assets/react-projects/rating.png';
+
 const Projects = () => {
+  // React practice projects with screenshots
+  const reactProjects = [
+    {
+      title: 'Random Number Generator',
+      image: randomNumberImg,
+      liveUrl: 'https://cp6rannum.ccbp.tech/',
+    },
+    {
+      title: 'Destination Search',
+      image: destinationSearchImg,
+      liveUrl: 'https://reactcdp6.ccbp.tech/',
+    },
+    {
+      title: 'Balance Withdraw',
+      image: balanceWithdrawImg,
+      liveUrl: 'https://reactcp7amount.ccbp.tech/',
+    },
+    {
+      title: 'Google Search Clone',
+      image: googleSearchImg,
+      liveUrl: 'https://reactcp71903.ccbp.tech/',
+    },
+    {
+      title: 'Browser History',
+      image: null, // No screenshot provided
+      liveUrl: 'https://reactcphistory.ccbp.tech/',
+      gradient: 'from-violet-500 to-purple-600'
+    },
+    {
+      title: 'Counter App',
+      image: counterImg,
+      liveUrl: 'https://reactcp9counter.ccbp.tech/',
+    },
+    {
+      title: 'Todo Application',
+      image: todoImg,
+      liveUrl: 'https://reactcp9todo.ccbp.tech/',
+    },
+    {
+      title: 'Rating Widget',
+      image: ratingImg,
+      liveUrl: 'https://reactcp11rating.ccbp.tech/',
+    },
+  ];
+
   const featuredProjects = [
     {
       title: 'Gen.Vitex',
@@ -43,7 +97,7 @@ const Projects = () => {
     {
       title: 'Static Web Project',
       description: 'A static website project demonstrating clean HTML structure, CSS styling, and fundamental web development concepts.',
-      image: null, // Placeholder for now
+      image: null,
       technologies: ['HTML5', 'CSS3', 'JavaScript'],
       features: [
         'Clean semantic HTML structure',
@@ -204,6 +258,54 @@ const Projects = () => {
     }
   ];
 
+  // Render React project card (minimal, professional style)
+  const renderReactProjectCard = (project: any, index: number) => (
+    <a
+      key={index}
+      href={project.liveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block overflow-hidden rounded-xl border border-border/50 bg-card shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:border-primary/50 animate-scale-in"
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      {/* Image or Gradient Placeholder */}
+      <div className="relative aspect-video overflow-hidden">
+        {project.image ? (
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        ) : (
+          <div className={`w-full h-full bg-gradient-to-br ${project.gradient || 'from-primary/20 to-accent/20'} flex items-center justify-center`}>
+            <span className="text-4xl">⚛️</span>
+          </div>
+        )}
+        
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-8">
+          <span className="flex items-center gap-2 text-foreground font-medium bg-primary/90 px-4 py-2 rounded-full text-sm">
+            <ExternalLink className="h-4 w-4" />
+            View Project
+          </span>
+        </div>
+      </div>
+      
+      {/* Title Section */}
+      <div className="p-4 flex items-center gap-3">
+        <span className="text-xl">⚛️</span>
+        <div>
+          <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+            {project.title}
+          </h3>
+          <Badge variant="secondary" className="text-xs mt-1">
+            React.js
+          </Badge>
+        </div>
+      </div>
+    </a>
+  );
+
   const renderProjectCard = (project: any, index: number) => (
     <Card key={index} className="gradient-card border-0 shadow-custom project-card overflow-hidden animate-scale-in" style={{ animationDelay: `${index * 200}ms` }}>
       {project.image && (
@@ -312,17 +414,29 @@ const Projects = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="static" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 mb-8">
-            <TabsTrigger value="static">Static</TabsTrigger>
-            <TabsTrigger value="dynamic">Dynamic</TabsTrigger>
-            <TabsTrigger value="responsive">Responsive</TabsTrigger>
+        <Tabs defaultValue="react" className="w-full">
+          <TabsList className="grid w-full grid-cols-5 mb-8">
             <TabsTrigger value="featured">Featured</TabsTrigger>
+            <TabsTrigger value="react">React</TabsTrigger>
+            <TabsTrigger value="dynamic">Dynamic</TabsTrigger>
+            <TabsTrigger value="static">Static</TabsTrigger>
+            <TabsTrigger value="responsive">Responsive</TabsTrigger>
           </TabsList>
 
           <TabsContent value="featured">
             <div className="grid md:grid-cols-2 gap-8">
               {featuredProjects.map((project, index) => renderProjectCard(project, index))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="react">
+            <div className="mb-6 text-center">
+              <p className="text-muted-foreground">
+                Interactive React.js projects demonstrating component architecture and state management
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {reactProjects.map((project, index) => renderReactProjectCard(project, index))}
             </div>
           </TabsContent>
 
